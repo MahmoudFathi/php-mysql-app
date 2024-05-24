@@ -19,7 +19,7 @@ services:
             MYSQL_PASSWORD: ranjit
             MYSQL_ROOT_PASSWORD: ranjit
         volumes:
-            - mydb.sql:/docker-entrypoint-initdb.d
+            #- mydb.sql:/docker-entrypoint-initdb.d
             - persistent:/var/lib/mysql
         networks:
             - default
