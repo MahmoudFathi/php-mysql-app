@@ -5,14 +5,12 @@ services:
         build: .
         ports:
             - "80:80"
-        volumes:
-            - ./www:/var/www/html/
         links:
             - db
         networks:
             - default
     db:
-        image: mysql:5.7.28
+        image: mysql
         ports:
             - "3306:3306"
         environment:
@@ -21,7 +19,7 @@ services:
             MYSQL_PASSWORD: ranjit
             MYSQL_ROOT_PASSWORD: ranjit
         volumes:
-            - ./dump:/docker-entrypoint-initdb.d
+            - mydb.sql:/docker-entrypoint-initdb.d
             - persistent:/var/lib/mysql
         networks:
             - default
